@@ -11,6 +11,6 @@ try:
         input()
         endtime = t.time()
         print('It\'s gone ' + str(round((endtime - starttime),4)))
-        print('Entre \'Ctrl + C\' Can stop counting')
+        print('Entre \'Ctrl + C\' Can stop counting',end = '')
 except KeyboardInterrupt:
     print('Bye-Bye!')
