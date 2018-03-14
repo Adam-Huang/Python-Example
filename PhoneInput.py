@@ -9,6 +9,9 @@ def _fUnlock():
     os.system('adb shell input swipe 250 1000 250 500 500')
     time.sleep(1)
 
+def _fLock():
+    os.system('adb shell input keyevent 26')
+    
 def _fBack():
     os.system('adb shell input keyevent 4')
     time.sleep(1)
@@ -34,8 +37,10 @@ def _fAutoRedbag():
     time.sleep(10)
     _fEnter()
     os.system('adb shell input tap 127 1100')##领取
-    time.sleep(0.5)
+    time.sleep(10)
     os.system('adb shell input tap 600 930')##阅读吧
+    time.sleep(5)
+    _fEnter()
     time.sleep(5)
     _fBack()
     os.system('adb shell input tap 600 1100')##redbag
@@ -46,8 +51,9 @@ def _fAutoRedbag():
     _fBack()
     _fBack()
     _fEnter()
+    time.sleep(5)
     os.system('adb shell input tap 308 1111')##浇花
-    time.sleep(2)
+    time.sleep(5)
     os.system('adb shell input tap 308 1111')##浇花
     _fClear()
 
@@ -56,14 +62,14 @@ def _fAutoPay():
     time.sleep(10)
     os.system('adb shell input tap 500 1200')##friend
     time.sleep(1)
-    os.system('adb shell input tap 550 600')##adadm
+    os.system('adb shell input tap 280 760')##adadm
     time.sleep(1)
     os.system('adb shell input tap 170 1060')##adadm
     time.sleep(1)
     os.system('adb shell input swipe 550 600 550 600 1000')##长安
     time.sleep(1)
     os.system('adb shell input tap 470 780')##识别
-    time.sleep(1)
+    time.sleep(10)
     os.system('adb shell input tap 222 550')##金额
     time.sleep(1)
     os.system('adb shell input keyevent 9')##输入2
@@ -83,5 +89,15 @@ def _fAutoPay():
     os.system('adb shell input tap 360 1111')##
     time.sleep(1)
     os.system('adb shell input tap 600 1005')##
-    time.sleep(1)
+    time.sleep(10)
+    os.system('adb shell input tap 142 881')##奖励金
+    time.sleep(2)
+    os.system('adb shell input tap 142 881')##
+    time.sleep(2)
+    _fBack()
+    os.system('adb shell input tap 588 888')##
+    time.sleep(3)
+    os.system('adb shell input tap 600 670')##
+    time.sleep(8)
+    _fEnter()
     _fClear()
