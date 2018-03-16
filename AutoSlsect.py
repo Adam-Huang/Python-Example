@@ -5,11 +5,12 @@
 import webbrowser as WEB
 import requests as R
 import sys
+import bs4
 
 if len(sys.argv) < 2:
     print('至少要两个参数\n')
     return
 param = sys.argv[1:]
-res = R.get('https://www.baidu.com/s?wd=' + param)
+res = R.get('http://www.baidu.com/s?wd=' + param)
 res.raise_for_status()
 
