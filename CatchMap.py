@@ -5,15 +5,23 @@
 import pyautogui as Au
 import time
 
-startpos = (0,190)
-endpos =(1750,900)
-jietupos = (772, 47)
+jietupos = (36,44)
 
+##计算初始点&&结束点
+def GetStartPoint():
+	w,h = Au.size()
+	return (0,h*0.2)
+
+def GetEndPoint():
+	w,h = Au.size()
+	return (w*0.95,h*0.8)
+	
 def main():
-    print('请先打开百度地图，然后让其全屏显示')
-    print('截图张数100张，分布10x10,每张图片大小为：1750x710')
+    print('请确保打开百度地图')
+    startpos = GetStartPoint()
+    endpos = GetEndPoint()
+    print('截图张数25张，分布5x5,每张图片大小为：{}x{}'.format(endpos[0]-startpos[0],endpos[1]-startpos[1]))
     print('请确认设置<截图工具>的快捷方式为Ctrl + Alt + ;')
-    
     Au.click(startpos)
     y = 0
     while y < 5:
@@ -37,21 +45,19 @@ def main():
             Au.hotkey('altleft','f4')
             time.sleep(2)
             Au.moveTo(endpos,duration=2)
-            Au.click(Au.position())
             time.sleep(2)
-            Au.dragRel(-1750,0,duration=20)
+            Au.dragRel(startpos[0]-endpos[0],0,duration=20)
             x+=1
             time.sleep(2)
         x = 0
-        while x < 6:
+        while x < 5:
             Au.moveTo(startpos,duration=2)
             time.sleep(2)
-            Au.dragRel(1750,0,duration=2)
-            Au.click(Au.position())
+            Au.dragRel(1750,0,duration=20)
             time.sleep(2)
             x+=1
         Au.moveTo(endpos,duration=2)
-        Au.dragRel(0,-710,duration=2)
+        Au.dragRel(0,startpos[1]-endpos[1],duration=10)
         Au.click(Au.position())
         time.sleep(2)
         y+=1
